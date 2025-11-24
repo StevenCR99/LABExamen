@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LABproject.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas registradas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["Mensaje"] is string msg)
+{
+    <div class="alert alert-success" role="alert">@msg</div>
+}
+
+<p>
+    <a asp-controller="Reservas" asp-action="Create" class="btn btn-primary">Nueva Reserva</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>No hay reservas registradas aún.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Código</th>
+                <th>Profesor</th>
+                <th>Email</th>
+                <th>Laboratorio</th>
+                <th>Fecha</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Motivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Codigo</td>
+                    <td>@r.ProfesorNombre</td>
+                    <td>@r.Email</td>
+                    <td>@r.Laboratorio</td>
+                    <td>@r.Fecha.ToString("yyyy-MM-dd")</td>
+                    <td>@r.HoraInicio.ToString(@"hh\:mm")</td>
+                    <td>@r.HoraFin.ToString(@"hh\:mm")</td>
+                    <td>@r.Motivo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
