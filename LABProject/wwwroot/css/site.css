@@ -29,3 +29,21 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+body 
+{
+    background-image: url('/img/fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.content-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
